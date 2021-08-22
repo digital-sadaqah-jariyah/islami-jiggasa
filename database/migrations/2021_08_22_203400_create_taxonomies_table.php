@@ -41,7 +41,7 @@ class CreateTaxonomiesTable extends Migration
         {
             $table->increments('id');
 
-            $table->string('name')->nullable()->unique();
+            $table->string('title')->nullable()->unique();
             $table->string('slug')->nullable()->unique();
 
             $table->timestamps();
@@ -60,7 +60,7 @@ class CreateTaxonomiesTable extends Migration
                   ->onDelete('cascade');
 
             $table->string('taxonomy')->default('default');
-            $table->string('desc')->nullable();
+            $table->string('description')->nullable();
 
             $table->integer('parent')->unsigned()->default(0);
 

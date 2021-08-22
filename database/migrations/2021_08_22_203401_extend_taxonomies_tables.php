@@ -40,10 +40,6 @@ class ExtendTaxonomiesTables extends Migration
             $table->text('lead')->nullable()->after('content');
         });
 
-        Schema::table($this->terms, function(Blueprint $table) {
-            $table->renameColumn('name', 'title');
-        });
-
         Schema::table($this->taxonomies, function(Blueprint $table) {
             $table->uuid('uuid')->nullable()->after('id');
 
@@ -53,12 +49,10 @@ class ExtendTaxonomiesTables extends Migration
                   ->on($this->taxonomies)
                   ->onDelete('cascade');
 
-            $table->longText('content')->nullable()->after('desc');
+            $table->longText('content')->nullable()->after('description');
             $table->text('lead')->nullable()->after('content');
 
             $table->json('properties')->nullable()->after('sort');
-
-            $table->renameColumn('desc', 'description');
         });
 
         DB::table($this->taxonomies)->where('parent', '>', 0)->update([
