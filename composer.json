@@ -12,7 +12,7 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "rinvex/laravel-categories": "^6.0"
+        "lecturize/laravel-taxonomies": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
